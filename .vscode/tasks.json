@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile SCSS (Expanded)",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "sass",
+                "--watch",
+                "src/scss/main.scss:dist/css/main.css",
+                "--style",
+                "expanded"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compile SCSS (Compressed)",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "sass",
+                "--watch",
+                "src/scss/main.scss:dist/css/main.min.css",
+                "--style",
+                "compressed"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
