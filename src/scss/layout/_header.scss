@@ -1,84 +1,237 @@
 @import "./../utils/_functions";
 @import "./../base/_variables";
 
-header {
-    width: 100%;
-    height: 100vh;
-    padding: 48px 96px;
+.nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 32px;
+    border-radius: 24px;
+    position: sticky;
+    top: 20px;
+    margin-bottom: 25px;
+    background-color: transparent;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    .nav_bars {
+        display: none;
+        transition:
+            all 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    @media screen and (max-width: 900px) {
+        label {
+            display: flex !important;
+            flex-direction: column;
+            transition:
+                all 0.3s ease,
+                box-shadow 0.3s ease;
+            width: 30px;
+            cursor: pointer;
+        }
 
-    .nav {
+        label span {
+            background: #fff;
+            border-radius: 10px;
+            height: 3px;
+            margin: 3px 0;
+            transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+
+        span:nth-of-type(1) {
+            width: 50%;
+        }
+
+        span:nth-of-type(2) {
+            width: 100%;
+        }
+
+        span:nth-of-type(3) {
+            width: 75%;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(8px, 0px);
+        }
+
+        input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+            transform-origin: top;
+            transform: rotatez(-45deg);
+        }
+
+        input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+            transform-origin: bottom;
+            width: 50%;
+            transform: translate(15px, -4px) rotatez(45deg);
+        }
+        .nav__list{
+            display: none   ;
+        }
+
+    }
+
+    .logo {
+        font-family: "Oswald";
+        font-style: normal;
+        font-weight: 700;
+        font-size: calculate-rem(30);
+        cursor: pointer;
+        span {
+            color: $primary-color;
+        }
+    }
+    ul {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        transition:
+            background-color 0.3s ease,
+            box-shadow 0.3s ease;
+        gap: 48px;
+
         padding: 10px 32px;
         border-radius: 24px;
 
-        position: sticky;
-        top: 10px;
+        a {
+            /* Home */
 
-        // background: rgba(255, 255, 255, 0.15);
-        // border-radius: 16px;
-        // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        // backdrop-filter: blur(8px);
-        // -webkit-backdrop-filter: blur(8px);
-        // border: 1px solid rgba(255, 255, 255, 0.29);
+            width: 54px;
+            height: 27px;
+
+            font-family: "Poppins";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: $white-color;
+            position: relative;
+
+            .nav__icon {
+                position: absolute; // Elementni flex konteynerida o'zgarishga moslash
+                width: 0;
+                height: 1px;
+
+                transition: all 0.3s ease;
+                margin-left: 0px;
+                bottom: -5px;
+                right: 0;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                .nav__icon {
+                    width: 100%;
+                    height: 1px;
+                    left: 0;
+                    background-color: $white-color;
+                }
+            }
+        }
+    }
+}
+#nav_mobile{
+    display: none;
+}
+header {
+    width: 100%;
+    height: 100vh;
+    padding: 0 96px;
+}
+
+@media screen and (max-width: 900px) {
+   
+    label {
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    
+    .nav__list{
+        display: none   ;
+    }
+    .top_menu{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center ;
+        justify-content: space-between;
         .logo {
+            padding: 10px 15px;
             font-family: "Oswald";
             font-style: normal;
             font-weight: 700;
             font-size: calculate-rem(30);
+            color: $white-color;
             cursor: pointer;
-        }
-        ul {
-            display: flex;
-            justify-content: space-between;
-            gap: 48px;
-
-            padding: 10px 32px;
-            border-radius: 24px;
-
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.29);
-            a {
-                /* Home */
-
-                width: 54px;
-                height: 27px;
-
-                font-family: "Poppins";
-                font-style: normal;
-                font-weight: 400;
-                font-size: 18px;
-                color: $white-color;
-                position: relative;
-
-
-                .nav__icon {
-                    position: absolute; // Elementni flex konteynerida o'zgarishga moslash
-                    width: 0;
-                    height: 1px;
-                  
-                    transition: all 0.3s ease;
-                    margin-left: 0px; 
-                    bottom: -5px;
-                    right: 0;
-                    border-radius: 50%;
-                }
-            
-                &:hover {
-                    .nav__icon {
-                        width: 100%;
-                        height: 1px;
-                        left: 0;
-                        background-color: $white-color;
-                    }
-                }
+            span {
+                color: $primary-color;
             }
-            
         }
     }
+    #nav_mobile {
+        position: fixed;
+    
+        display: block !important;
+        width: 100%;
+        margin: auto;
+        height: 100%;
+        position: fixed;
+        z-index: 999;
+        background-color: $secondary-color; // Asosiy fon rangi
+        color: $primary-color; // Matn rangi
+        top: -100%;
+        left: 0;
+        transition: all .8s ;
+        padding: 20px;
+      
+        ul {
+          margin: auto;
+            margin-top: 20px;
+          width: 90%;
+          
+      
+          li {
+            margin-bottom: 15px;
+      
+            a {
+              display: block;
+              text-decoration: none; // Chiziqni olib tashlash
+              font-size: 18px;
+              color: $primary-color;
+              padding: 10px 15px;
+              border-radius: 5px;
+              transition: background-color 0.3s ease, color 0.3s ease;
+      
+              &:hover {
+                background-color: darken($secondary-color, 10%);
+                color: lighten($primary-color, 20%);
+              }
+            }
+          }
+        }
+      
+        // Mobil nav uchun yopish tugmasi (ixtiyoriy)
+        .close-btn {
+  
+
+          font-size: 32px;
+          color: $primary-color;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+      
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    .open_mobile_menu{
+        top: 0 !important;
+    }
+    
 }

@@ -13,21 +13,45 @@
 <body >
     
     <div class="container">
+        <div id="nav_mobile" class="">
+            <div class="top_menu">
+                <div class="logo">Muhammad<span>Link</span></div>
+                <div class="close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            
+            <ul>
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">Home <i class="nav__icon"></i></a>
+                </li>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">About Me <i class="nav__icon"></i></a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">Contact <i class="nav__icon"></i></a>
+                </li>
+            </ul>
+        </div>
+        <nav class="nav">
+            <div class="logo">Muhammad<span>Link</span></div>
+            <ul class="nav__list ul_active">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">Home <i class="nav__icon"></i></a>
+                </li>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">About Me <i class="nav__icon"></i></a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">Contact <i class="nav__icon"></i></a>
+                </li>
+            </ul>
+            <label for="check" class="nav_bars">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </label>
+        </nav>
         <header>
-            <nav class="nav">
-                <div class="logo">MuhammadLink</div>
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link">Home <i class="nav__icon"></i></a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">About Me <i class="nav__icon"></i></a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact <i class="nav__icon"></i></a>
-                    </li>
-                </ul>
-            </nav>
+            
     
             <section class="hero">
                 <div class="hero_about">
@@ -778,6 +802,6 @@
             <span>Terms of Service - Privacy Policy</span>
         </footer>
     </div>
-    <script src="dist/js/script.js"></script> <!-- JS yo‘li yangilandi -->
+    <script src="./src/js/script.js"></script> <!-- JS yo‘li yangilandi -->
 </body>
 </html>
